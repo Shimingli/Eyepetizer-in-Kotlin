@@ -35,6 +35,8 @@ class HomeFragment : BaseFragment(), HomeContract.View, SwipeRefreshLayout.OnRef
         val p = Pattern.compile(regEx)
         val m = p.matcher(bean?.nextPageUrl)
         data = m.replaceAll("").subSequence(1, m.replaceAll("").length - 1).toString()
+        println("shiming HomeFragment==="+data.toString())
+        println("shiming HomeFragment==="+bean.toString())
         if (mIsRefresh) {
             mIsRefresh = false
             refreshLayout.isRefreshing = false
@@ -59,6 +61,7 @@ class HomeFragment : BaseFragment(), HomeContract.View, SwipeRefreshLayout.OnRef
         mPresenter = HomePresenter(context, this)
         mPresenter?.start()
         recyclerView.layoutManager = LinearLayoutManager(context)
+        println("shiming HomeFragment mlist"+mList.toString())
         mAdapter = HomeAdatper(context, mList)
         recyclerView.adapter = mAdapter
         refreshLayout.setOnRefreshListener(this)

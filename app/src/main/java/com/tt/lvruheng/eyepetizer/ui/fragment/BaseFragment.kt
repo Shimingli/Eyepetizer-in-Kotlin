@@ -16,6 +16,7 @@ abstract class BaseFragment : Fragment() {
     var rootView :View? = null
     var isFragmentVisiable :Boolean = false
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        println("shiming"+this.javaClass.name)
         if(rootView==null){
             rootView = inflater?.inflate(getLayoutResources(),container,false)
         }
